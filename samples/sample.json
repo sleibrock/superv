@@ -1,0 +1,14 @@
+{
+	"sleep_time": 30,
+	"sleep_count": 12,
+	"hard_resets": true,
+	"init_sleep": 30,
+	"bots": [
+		{
+			"program": "python",
+			"args": [
+					"bots/dumb-bot.py"
+			]
+		}
+	]
+}
