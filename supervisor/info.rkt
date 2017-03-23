@@ -1,3 +1,3 @@
 #lang setup/infotab
 (define raco-commands
-  '(("superv" (submod superv/supervisor/superv main) "Run Supervisor" 100)))
+  '(("superv" (submod superv/supervisor/main main) "Run Supervisor" 100)))
