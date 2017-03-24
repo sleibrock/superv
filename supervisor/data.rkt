@@ -15,7 +15,11 @@
  default-config-file
  span
  create-logger
+ posint?
  )
+
+;; Check used for positive integers
+(define (posint? x) (and (positive? x) (integer? x)))
 
 ;; Constants to use in the supervisor process
 (define default-sleep-time   30)
@@ -56,6 +60,8 @@
      (check-eq? '() (span -1) "Negative input"))
    (test-case "Testing create-logger"
      (check-true (procedure? (create-logger "supervisor" 9)) "Creates a function?"))
+   (test-case "Testing posint?"
+     (check-true (posint? 1) "Is 1 a posint?"))
    )
 
 ;; end
