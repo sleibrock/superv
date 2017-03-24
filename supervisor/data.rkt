@@ -18,13 +18,13 @@
  )
 
 ;; Constants to use in the supervisor process
-(define default-sleep-time 30)
-(define default-sleep-count 12)
-(define default-hard-resets #t)
-(define default-init-sleep 30)
-(define default-config-file "config.json")
+(define default-sleep-time   30)
+(define default-sleep-count  12)
+(define default-hard-resets  #t)
+(define default-init-sleep   30)
+(define default-config-file  "config.json")
 
-;; Used only by *create-logger, shouldn't be modifiable or provided
+;; Used only by *create-logger, shouldn't be configurable through the JSON
 (define default-print-string "[\033[38;5;~am~a\033[0m @ ~a:~a:~a] ~a")
 
 ;; Create a list of numbers much like racket/list:range

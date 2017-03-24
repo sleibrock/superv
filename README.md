@@ -26,8 +26,11 @@ something about downloading a Raco PLT package here
 Then you can run
 
 ```
-raco superv
+raco superv <your_config.json>
 ```
 
-In any directory so long as you provide a configuration JSON file.
+Look under the `samples/` folder for an example JSON configuration you can edit to create your own `superv` configuration.
 
+## Requirements
+
+`superv` requires Racket and `raco` but should run on any Racket version above 6.5 at least.

@@ -2,8 +2,9 @@
 
 ;; Subprocess code
 ;; All subprocess-related things should go here (if any)
-
 (require racket/function)
+
+(provide subp)
 
 ;; Create a subprocess from a proc and a list of arguments (if any given)
 ;; The idea is to use currying to start the process of creating a subprocess,

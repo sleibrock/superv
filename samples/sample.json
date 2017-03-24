@@ -3,17 +3,19 @@
     "sleep_count": 12,
     "hard_resets": true,
     "init_sleep": 30,
-    "bots": [
+    "programs": [
 	{
-	    "program": "python",
+	    "name": "Sleep 10sec",
+	    "program": "sleep",
 	    "args": [
-		"bots/dumb-bot.py"
+		"10"
 	    ]
 	},
 	{
+	    "name": "Sleep 60sec",
 	    "program": "sleep",
 	    "args": [
-		"30"
+		"60"
 	    ]
 	}
     ]
