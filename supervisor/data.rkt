@@ -12,7 +12,9 @@
  default-sleep-count
  default-hard-resets
  default-init-sleep
+ default-reset-sleep
  default-config-file
+ default-name-factory
  span
  create-logger
  posint?
@@ -26,10 +28,18 @@
 (define default-sleep-count  12)
 (define default-hard-resets  #t)
 (define default-init-sleep   30)
+(define default-reset-sleep  30)
 (define default-config-file  "config.json")
 
 ;; Used only by *create-logger, shouldn't be configurable through the JSON
 (define default-print-string "[\033[38;5;~am~a\033[0m @ ~a:~a:~a] ~a")
+
+;; Default program name - a closure that increments the number each time
+(define (default-name-factory)
+  (define counter 0)
+  (λ ()
+    (set! counter (add1 counter))
+    (values (format "Program ~a" counter))))
 
 ;; Create a list of numbers much like racket/list:range
 ;; (We don't really want to pull in the whole racket/list library though)

@@ -20,7 +20,7 @@ Ideally with a supervisor you can run long-term programs that are meant to stay 
 `superv` is a program that can be used directly right from Racket's `raco` command. Once you install `superv` with:
 
 ```
-something about downloading a Raco PLT package here
+raco pkg install superv
 ```
 
 Then you can run

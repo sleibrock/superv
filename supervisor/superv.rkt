@@ -43,7 +43,7 @@
 (define (superv conf-path)
   (define logger (create-logger "supervisor  " 9))
   (define-values
-    (hard-rest sleep-count sleep-time init-sleep programs)
+    (hard-rest sleep-count sleep-time init-sleep rest-sleep programs)
     (read-config conf-path))
   (define total-progs (vector-length programs))
   (define make-prog (prog-factory programs logger))
@@ -65,7 +65,7 @@
       (loop 0))
     (logger "Shutting down Custodian")
     (custodian-shutdown-all cust)
-    (sleep sleep-time)
+    (sleep rest-sleep)
     (cust-loop))
   (cust-loop))
 

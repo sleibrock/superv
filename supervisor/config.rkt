@@ -6,10 +6,12 @@
 
 (provide read-config)
 
+(define namer (default-name-factory))
+
 (define (hash->program phash)
-  (program (hash-ref phash 'name)
+  (program (hash-ref phash 'name (namer))
            (hash-ref phash 'program)
-           (hash-ref phash 'args)))
+           (hash-ref phash 'args '())))
 
 ;; Define a configuration reading system here
 ;; You can add more variables as you see fit
@@ -17,10 +19,11 @@
 (define (read-config file-path)
   (define jdata (read-json (open-input-file file-path)))
   (define hard-restart (hash-ref jdata 'hard_restarts default-hard-resets))
-  (define sleep-count  (hash-ref jdata 'sleep_count default-sleep-count))
-  (define sleep-time   (hash-ref jdata 'sleep_time default-sleep-time))
-  (define init-sleep   (hash-ref jdata 'init_sleep default-init-sleep))
-  (define program-data (hash-ref jdata 'programs '()))
+  (define sleep-count  (hash-ref jdata 'sleep_count   default-sleep-count))
+  (define sleep-time   (hash-ref jdata 'sleep_time    default-sleep-time))
+  (define init-sleep   (hash-ref jdata 'init_sleep    default-init-sleep))
+  (define rest-sleep   (hash-ref jdata 'reset_sleep   default-reset-sleep))
+  (define program-data (hash-ref jdata 'programs      '()))
 
   ;; Do error checks here to see if we have a decent JSON file
   (when (eqv? '() program-data)
@@ -39,4 +42,5 @@
           sleep-count
           sleep-time
           init-sleep
+          rest-sleep
           (list->vector (map hash->program program-data))))
